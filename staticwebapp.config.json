@@ -1,12 +1,24 @@
 {
   "routes": [
     {
-      "route": "/index.html",
-      "rewrite": "/taskpane.html"
+      "route": "/",
+      "redirect": "/assets/support.html",
+      "statusCode": 302
     },
     {
-      "route": "/",
-      "rewrite": "/taskpane.html"
+      "route": "/manifest.xml",
+      "headers": {
+        "Content-Disposition": "attachment; filename=\"manifest.xml\""
+      }
     }
-  ]
+  ],
+  "globalHeaders": {
+    "Cache-Control": "no-cache",
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": ""
+  },
+  "mimeTypes": {
+    ".xml": "application/xml",
+    ".svg": "image/svg+xml"
+  }
 }

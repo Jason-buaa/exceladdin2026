@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp
+  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+  xsi:type="TaskPaneApp">
+  <Id>6f0c2f8e-3b7d-4a51-9d2a-8c1f5b7e4a10</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>TimeMachineExcel</ProviderName>
+  <DefaultLocale>zh-CN</DefaultLocale>
+  <DisplayName DefaultValue="TimeMachineExcel" />
+  <Description DefaultValue="记住访问过的单元格、统计停留时间并记录编辑与格式变化。" />
+  <IconUrl DefaultValue="https://ambitious-mushroom-0afbcc500.8.azurestaticapps.net/assets/icon-32.png" />
+  <HighResolutionIconUrl DefaultValue="https://ambitious-mushroom-0afbcc500.8.azurestaticapps.net/assets/icon-80.png" />
+  <SupportUrl DefaultValue="https://ambitious-mushroom-0afbcc500.8.azurestaticapps.net/assets/support.html" />
+  <AppDomains>
+    <AppDomain>https://ambitious-mushroom-0afbcc500.8.azurestaticapps.net</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Workbook" />
+  </Hosts>
+  <Requirements>
+    <Sets DefaultMinVersion="1.9">
+      <Set Name="ExcelApi" MinVersion="1.9" />
+    </Sets>
+  </Requirements>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://ambitious-mushroom-0afbcc500.8.azurestaticapps.net/taskpane.html" />
+  </DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Hosts>
+      <Host xsi:type="Workbook">
+        <DesktopFormFactor>
+          <FunctionFile resid="Commands.Url" />
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <OfficeTab id="TabHome">
+              <Group id="TME.Group">
+                <Label resid="Group.Label" />
+                <Icon>
+                  <bt:Image size="16" resid="Icon.16" />
+                  <bt:Image size="32" resid="Icon.32" />
+                  <bt:Image size="80" resid="Icon.80" />
+                </Icon>
+                <Control xsi:type="Button" id="TME.OpenPanel">
+                  <Label resid="OpenPanel.Label" />
+                  <Supertip>
+                    <Title resid="OpenPanel.Label" />
+                    <Description resid="OpenPanel.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16" />
+                    <bt:Image size="32" resid="Icon.32" />
+                    <bt:Image size="80" resid="Icon.80" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>TME.Taskpane</TaskpaneId>
+                    <SourceLocation resid="Taskpane.Url" />
+                  </Action>
+                </Control>
+                <Control xsi:type="Button" id="TME.JumpToLast">
+                  <Label resid="JumpToLast.Label" />
+                  <Supertip>
+                    <Title resid="JumpToLast.Label" />
+                    <Description resid="JumpToLast.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16" />
+                    <bt:Image size="32" resid="Icon.32" />
+                    <bt:Image size="80" resid="Icon.80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>jumpToLast</FunctionName>
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    <Resources>
+      <bt:Images>
+        <bt:Image id="Icon.16" DefaultValue="https://ambitious-mushroom-0afbcc500.8.azurestaticapps.net/assets/icon-16.png" />
+        <bt:Image id="Icon.32" DefaultValue="https://ambitious-mushroom-0afbcc500.8.azurestaticapps.net/assets/icon-32.png" />
+        <bt:Image id="Icon.80" DefaultValue="https://ambitious-mushroom-0afbcc500.8.azurestaticapps.net/assets/icon-80.png" />
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="Commands.Url" DefaultValue="https://ambitious-mushroom-0afbcc500.8.azurestaticapps.net/commands.html" />
+        <bt:Url id="Taskpane.Url" DefaultValue="https://ambitious-mushroom-0afbcc500.8.azurestaticapps.net/taskpane.html" />
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="Group.Label" DefaultValue="TimeMachine" />
+        <bt:String id="OpenPanel.Label" DefaultValue="打开活动面板" />
+        <bt:String id="JumpToLast.Label" DefaultValue="回到上次位置" />
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="OpenPanel.Tooltip" DefaultValue="查看访问轨迹、停留时间与编辑历史。" />
+        <bt:String id="JumpToLast.Tooltip" DefaultValue="跳转到本工作簿上次停留的单元格。" />
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
